@@ -1,0 +1,15 @@
+# Format trong Quarto
+
+In đậm, gạch dưới, tô màu
+
+-   Cách 1:
+
+[**abc**]{.underline}]{style="color:#FF0000;"}
+
+`[**abc**]{.underline style="color:#FF0000;"}`
+
+-   Cách 2:
+
+[<ins>**abc**]{style="color:#FF0000;"}\</ins\>
+
+`[<ins>**abc**</ins>]{style="color:#FF0000;"}`

@@ -1,0 +1,24 @@
+project:
+  type: book
+
+book:
+  title: "statistics"
+  author: "Norah Jones"
+  date: "10/25/2024"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: F:\\VAULT12\\LOCAL\\all.bib
+csl: ieee.csl
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+
