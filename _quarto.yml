@@ -4,7 +4,7 @@ project:
 
 book:
   title: "statistics"
-  author: "Norah Jones"
+  author: "Duc Nguyen"
   date: "10/25/2024"
   chapters:
     - index.qmd
@@ -17,7 +17,23 @@ csl: ieee.csl
 
 format:
   html:
-    theme: cosmo
+    include-in-header:
+      - text: <link rel="stylesheet" href="https://latex.vercel.app/style.css">
+    # theme: cosmo
+    toc: false
+    toc-title: "Mục lục"
+    toc-expand: 8
+    toc-depth: 6
+    toc-location: left
+    # number-sections: true
+    number-depth: 8
+    # page-layout: full
+    anchor-sections: true
+    smooth-scroll: true
+    # grid: 
+    #   body-width: 8000px
+    #   sidebar-width: 200px
+    #   margin-width: 200px
   pdf:
     documentclass: scrreprt
 
