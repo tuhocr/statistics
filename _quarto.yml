@@ -18,7 +18,8 @@ csl: ieee.csl
 format:
   html:
     include-in-header:
-      - text: <link rel="stylesheet" href="https://latex.vercel.app/style.css">
+      - text: <link rel="stylesheet" href="https://github.com/tuhocr/statistics/blob/main/latex_css/style.css">
+      # - text: <link rel="stylesheet" href="https://latex.vercel.app/style.css">
     # theme: cosmo
     toc: false
     toc-title: "Mục lục"

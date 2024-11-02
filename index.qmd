@@ -10,7 +10,7 @@ knitr::opts_chunk$set(message = FALSE,
                       warning = FALSE)   
 ```
 
-Trong toán học, vật lý và kỹ thuật, vector hay hướng lượng (theo phiên âm Hán Việt) là một đoạn thẳng có hướng. Đoạn thẳng này biểu thị phương, chiều, độ lớn (chiều dài của vector). aaabbbcccVí dụ trong [mặt phẳng]{.underline} cho hai điểm phân biệt A và B bất kì ta có thể xác định được vector $\overrightarrow{AB}$
+Trong toán học, vật lý và kỹ thuật, vector hay hướng lượng (theo phiên âm Hán Việt) là một đoạn thẳng có hướng. Đoạn thẳng này biểu thị phương, chiều, độ lớn (chiều dài của vector). aaabbbcccdddeeeVí dụ trong [mặt phẳng]{.underline} cho hai điểm phân biệt A và B bất kì ta có thể xác định được vector $\overrightarrow{AB}$
 
 > [***A vector***]{style="color:#006400;"} is an object that has **both** [**a magnitude**]{.underline style="color:#FF0000;"} and [**a direction**]{.underline style="color:#FF0000;"}. Geometrically, we can picture a vector as a directed line segment, whose length is the magnitude of the vector and with an arrow indicating the direction. The direction of the vector is from its tail to its head[@vector_1].
 
