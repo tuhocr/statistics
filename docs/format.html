@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Duc Nguyen">
-<meta name="dcterms.date" content="2024-11-03">
 
-<title>Phân tích thống kê và vẽ đồ thị xuất sắc với R</title>
+<title>Phân tích thống kê và vẽ đồ thị xuất sắc với R - 4&nbsp; Format</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./vector.html" rel="next">
+<link href="./references.html" rel="next">
+<link href="./data_wrangling.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -83,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Lời nói đầu</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./format.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Format</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -110,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lời nói đầu</span></a>
   </div>
 </li>
@@ -134,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./format.html" class="sidebar-item-text sidebar-link">
+  <a href="./format.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Format</span></span></a>
   </div>
 </li>
@@ -149,40 +148,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="8">
-    <h2 id="toc-title">Mục lục</h2>
-   
-  <ul>
-  <li><a href="#lời-nói-đầu" id="toc-lời-nói-đầu" class="nav-link active" data-scroll-target="#lời-nói-đầu">Lời nói đầu</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Phân tích thống kê và vẽ đồ thị xuất sắc với R</h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Format</span></h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-body">
+<div class="quarto-title-meta column-page-right">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Duc Nguyen </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">03 November 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -192,13 +173,31 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p><strong>In đậm, gạch dưới, tô màu</strong></p>
+<ul>
+<li>Cách 1 (kiểu Quarto)</li>
+</ul>
+<p><span style="color:#FF0000;"><u><strong>abc</strong></u></span></p>
+<p><code>[**abc**]{.underline style="color:#FF0000;"}</code></p>
+<ul>
+<li>Cách 2 (kiểu HTML)</li>
+</ul>
+<p><span style="color:#FF0000;"><ins><strong>abc</strong></ins></span></p>
+<p><code>[&lt;ins&gt;**abc**&lt;/ins&gt;]{style="color:#FF0000;"}</code></p>
+<p><strong>Highlight màu vàng</strong></p>
+<p><mark style="background-color: #FFFF00"><strong>abc</strong></mark></p>
+<p><code>&lt;mark style="background-color: #FFFF00"&gt;**abc**&lt;/mark&gt;</code></p>
+<p><strong>Chèn ảnh và thay đổi kích thước</strong></p>
+<p><img src="logor.png" width="200" height="155"></p>
+<p><code>![](logor.png){ width=200px height=155 }</code></p>
+<p><strong>Ẩn/hiện kết quả</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 
-<section id="lời-nói-đầu" class="level1 unnumbered">
-<h1 class="unnumbered">Lời nói đầu</h1><p><img src="cover.png" title="Phân tích thống kê và vẽ đồ thị xuất sắc với R" class="quarto-cover-image img-fluid"></p>
-<p>Cảm ơn tất cả mọi người đã, đang và sẽ làm việc với tôi qua câu chuyện R để tạo ra các đoạn code giúp thế giới trở nên tốt đẹp hơn. Trân trọng.</p>
-<p>Duc Nguyen, <em>always a student.</em></p>
 
-
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p><a href="https://minidown.atusy.net/?framework=sakura&amp;theme=default#results-folding" class="uri">https://minidown.atusy.net/?framework=sakura&amp;theme=default#results-folding</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -589,12 +588,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation column-body">
+<nav class="page-navigation column-page-right">
   <div class="nav-page nav-page-previous">
+      <a href="./data_wrangling.html" class="pagination-link" aria-label="Data wrangling">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data wrangling</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./vector.html" class="pagination-link" aria-label="Vector">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vector</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="Tài liệu tham khảo">
+        <span class="nav-page-text">Tài liệu tham khảo</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

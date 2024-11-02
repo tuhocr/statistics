@@ -1,0 +1,32 @@
+# Format
+
+**In đậm, gạch dưới, tô màu**
+
+- Cách 1 (kiểu Quarto)
+
+[**abc**]{.underline style="color:#FF0000;"}
+
+`[**abc**]{.underline style="color:#FF0000;"}`
+
+- Cách 2 (kiểu HTML)
+
+[<ins>**abc**</ins>]{style="color:#FF0000;"}
+
+`[<ins>**abc**</ins>]{style="color:#FF0000;"}`
+
+**Highlight màu vàng**
+
+<mark style="background-color: #FFFF00">**abc**</mark>
+
+`<mark style="background-color: #FFFF00">**abc**</mark>`
+
+**Chèn ảnh và thay đổi kích thước**
+
+![](logor.png){ width=200px height=155 }
+
+`![](logor.png){ width=200px height=155 }`
+
+
+**Ẩn/hiện kết quả**[^5]
+
+[^5]: <https://minidown.atusy.net/?framework=sakura&theme=default#results-folding>

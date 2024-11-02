@@ -1,0 +1,39 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# Data wrangling
+
+Data wrangling là sắp xếp dữ liệu.
+
+## Chọn ngẫu nhiên số dòng trong dataset
+
+```{r}
+df_particle <- readRDS("dataset/df_particle.rds")
+```
+
+```{r}
+df_particle
+```
+
+**Cách 1**[^1]
+
+```{r}
+library(dplyr)
+
+# cố định sự ngẫu nhiên
+set.seed(1) 
+
+# theo số lượng dòng
+df_particle %>% dplyr:::sample_n(size = 20,
+                                 replace = FALSE)
+# cố định sự ngẫu nhiên
+set.seed(1) 
+
+# theo tỷ lệ
+df_particle %>% dplyr:::sample_frac(size = 0.25,
+                                 replace = FALSE)
+```
+
+[^1]: <https://scales.arabpsychology.com/stats/how-to-select-random-rows-in-r-using-dplyr/>

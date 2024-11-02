@@ -1,0 +1,307 @@
+# Vector 
+
+Trong toán học, vector hay hướng lượng (theo phiên âm Hán-Việt) là một đoạn thẳng có hướng. Đoạn thẳng này biểu thị phương, chiều, độ lớn (chiều dài của vector). Ví dụ trong [mặt phẳng]{.underline} cho hai điểm phân biệt $A$ và $B$ bất kì ta có thể xác định được vector $\overrightarrow{AB}$.
+
+> [***A vector***]{style="color:#006400;"} is an object that has **both** [**a magnitude**]{.underline style="color:#FF0000;"} and [**a direction**]{.underline style="color:#FF0000;"}. Geometrically, we can picture a vector as a directed line segment, whose length is the magnitude of the vector and with an arrow indicating the direction. The direction of the vector is from its tail to its head [@vector_1].
+
+![](img/vector.png)
+
+Hai vector được xem là bằng nhau nếu có cùng hướng và cùng độ lớn (độ dài).
+
+```{r, eval=TRUE, results='hide'}
+#| code-fold: true
+#| code-summary: ""
+
+png(filename = "img/vector_ok.png",
+    width = 10,
+    height = 10,
+    res = 300,
+    units = "in")
+
+par(pty = "s")
+par(mar = c(0, 0, 0, 0))
+par(oma = c(0, 0, 0, 0))
+
+plot(x = 0,
+     y = 0,
+     type = "n",
+     xlim = c(-11, 11),
+     ylim = c(-11, 11),
+     xaxs = "i",
+     yaxs = "i",
+     las = 1,
+     xaxt = "n",
+     yaxt = "n",
+     bty = "o",
+     xlab = "",
+     ylab = "")
+
+grid(nx = 22, ny = 22, col = "black")
+
+axis(side = 1,
+     at = -11:11,
+     labels = NA,
+     line = - (grconvertY(y = 0, 
+                          from = "user", 
+                          to = "lines") - 
+       grconvertY(y = -11, 
+                  from = "user", 
+                  to = "lines")),
+     tick = FALSE)
+
+# abline(h = 0)
+
+segments(x0 = -0.2,
+         x1 = 0.2,
+         y0 = -11:11,
+         y1 = -11:11,
+         col = "black")
+
+arrows(x0 = -11,
+       x1 = 11,
+       y0 = 0,
+       y1 = 0,
+       col = "black")
+
+axis(side = 2,
+     at = -11:11,
+     labels = NA,
+     line = - (grconvertX(x = 0, 
+                          from = "user", 
+                          to = "lines") - 
+       grconvertX(x = -11, 
+                  from = "user", 
+                  to = "lines")),
+     las = 1,
+     tick = FALSE)
+
+# abline(v = 0)
+
+arrows(y0 = -11,
+       y1 = 11,
+       x0 = 0,
+       x1 = 0,
+       col = "black")
+
+segments(y0 = -0.2,
+         y1 = 0.2,
+         x0 = -11:11,
+         x1 = -11:11,
+         col = "black")
+
+points(x = 0,
+       y = 0,
+       col = "black",
+       pch = 19,
+       cex = 1.5)
+
+text(x = -0.3,
+     y = 0.3,
+     pos = 2,
+     labels = 0,
+     cex = 1.2)
+
+text(x = -10:10,
+     y = -0.3,
+     labels = c(-10:-1, NA, 1:10),
+     pos = 1,
+     cex = 1.2,
+     xpd = NA)
+
+text(y = -10:10,
+     x = -0.3,
+     labels = c(-10:-1, NA, 1:10),
+     pos = 2,
+     cex = 1.2,
+     xpd = NA)
+
+###
+
+arrows(x0 = 4,
+       x1 = 9,
+       y0 = 1,
+       y1 = 3,
+       col = "red",
+       lwd = 2)
+
+arrows(x0 = 4-3,
+       x1 = 9-3,
+       y0 = 1+4,
+       y1 = 3+4,
+       col = "blue",
+       lwd = 2)
+
+segments(x0 = 4,
+         x1 = 4-3,
+         y0 = 1,
+         y1 = 1+4,
+         col = "darkgreen",
+         lwd = 1,
+         lty = 2)
+
+segments(x0 = 9,
+         x1 = 9-3,
+         y0 = 3,
+         y1 = 3+4,
+         col = "darkgreen",
+         lwd = 1,
+         lty = 2)
+
+###
+
+points(x = 4,
+       y = 1,
+       col = "red",
+       pch = 19,
+       cex = 1.5)
+
+text(x = 4,
+     y = 1,
+     col = "red",
+     pos = 2,
+     labels = "A",
+     cex = 1.5)
+
+text(x = 9,
+     y = 3,
+     col = "red",
+     pos = 4,
+     labels = "B",
+     cex = 1.5)
+
+###
+
+points(x = 1,
+       y = 5,
+       col = "blue",
+       pch = 19,
+       cex = 1.5)
+
+text(x = 1,
+     y = 5,
+     col = "blue",
+     pos = 2,
+     labels = "C",
+     cex = 1.5)
+
+text(x = 6,
+     y = 7,
+     col = "blue",
+     pos = 4,
+     labels = "D",
+     cex = 1.5)
+
+###
+
+library(exams)
+options(exams_tex = "tools")
+
+header_ok <- c("\\usepackage{helvet}", 
+           "\\IfFileExists{sfmath.sty}{\\RequirePackage[helvet]{sfmath}}{}",
+           "\\renewcommand{\\sfdefault}{phv}", 
+           "\\renewcommand{\\rmdefault}{phv}",
+           "\\usepackage[utf8]{vietnam}",
+           "\\usepackage{times}",
+           "\\usepackage{xcolor}")
+
+exams::tex2image(tex = "\\textcolor[HTML]{FF00FF}{x-axis}",
+                 format = "svg",
+                 density = 1000,
+                 resize = 1000,
+                 dir = paste0(getwd(), "/img"),
+                 name = "x_axis",
+                 show = FALSE,
+                 header = header_ok)
+ 
+library(grImport2)
+p_1 <- grImport2::readPicture("img/x_axis.svg" )
+ 
+ 
+grImport2::grid.picture(p_1, 
+                        x = 0.95, 
+                        y = 0.43, 
+                        width = 0.1 
+                        )
+
+###
+
+exams::tex2image(tex = "\\textcolor[HTML]{FF00FF}{y-axis}",
+                 format = "svg",
+                 density = 1000,
+                 resize = 1000,
+                 dir = paste0(getwd(), "/img"),
+                 name = "y_axis",
+                 show = FALSE,
+                 header = header_ok)
+
+p_2 <- grImport2::readPicture("img/y_axis.svg" )
+ 
+ 
+grImport2::grid.picture(p_2, 
+                        y = 0.97, 
+                        x = 0.4, 
+                        width = 0.1 
+                        )
+
+###
+
+exams::tex2image(tex = "$\\overrightarrow{AB}$",
+                 format = "svg",
+                 density = 1000,
+                 resize = 1000,
+                 dir = paste0(getwd(), "/img"),
+                 name = "vector_ab",
+                 show = FALSE,
+                 header = header_ok)
+
+p_3 <- grImport2::readPicture("img/vector_ab.svg" )
+ 
+ 
+grImport2::grid.picture(p_3, 
+                        y = (11+3.8)/23, 
+                        x = (11+6)/23, 
+                        width = 0.1 
+                        )
+
+###
+
+exams::tex2image(tex = "$\\overrightarrow{CD}$",
+                 format = "svg",
+                 density = 1000,
+                 resize = 1000,
+                 dir = paste0(getwd(), "/img"),
+                 name = "vector_cd",
+                 show = FALSE,
+                 header = header_ok)
+
+p_4 <- grImport2::readPicture("img/vector_cd.svg" )
+ 
+ 
+grImport2::grid.picture(p_4, 
+                        y = (11+8)/23, 
+                        x = (11+3.5)/23, 
+                        width = 0.1 
+                        )
+
+dev.off()
+```
+
+![](img/vector_ok.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

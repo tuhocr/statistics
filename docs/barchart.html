@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>statistics - 2&nbsp; Summary</title>
+<title>Phân tích thống kê và vẽ đồ thị xuất sắc với R - 2&nbsp; Barchart</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
-<link href="./intro.html" rel="prev">
+<link href="./data_wrangling.html" rel="next">
+<link href="./vector.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -102,7 +102,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<link rel="stylesheet" href="https://latex.vercel.app/style.css">
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 </head>
@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./summary.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./barchart.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Barchart</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -126,12 +126,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">statistics</a> 
+      <a href="./">Phân tích thống kê và vẽ đồ thị xuất sắc với R</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -144,25 +144,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vector</span></a>
+ <span class="menu-text">Lời nói đầu</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Format trong Quarto</span></span></a>
+  <a href="./vector.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vector</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  <a href="./barchart.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Barchart</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_wrangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data wrangling</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./format.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Format</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Tài liệu tham khảo</span></a>
   </div>
 </li>
     </ul>
@@ -171,19 +183,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="8">
+    <h2 id="toc-title">Mục lục</h2>
+   
+  <ul>
+  <li><a href="#so-sánh-hai-nhóm" id="toc-so-sánh-hai-nhóm" class="nav-link active" data-scroll-target="#so-sánh-hai-nhóm"><span class="header-section-number">2.1</span> So sánh hai nhóm</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Barchart</span></h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -195,15 +213,420 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>In summary, this book has no content whatsoever.</p>
+<p>Barchart hay bar chart là đồ thị cột dùng để biểu diễn giữa 1 biến phân loại (trục X) và 1 biến liên tục (trục Y).</p>
+<section id="so-sánh-hai-nhóm" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="so-sánh-hai-nhóm"><span class="header-section-number">2.1</span> So sánh hai nhóm</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df_particle <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"dataset/df_particle.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="`df_particle`">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<code>df_particle</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<pre><code>    before after
+1    0.291 0.335
+2    0.635 0.513
+3    0.493 0.469
+4    0.480 0.386
+5    0.401 0.398
+6    0.330 0.323
+7    0.398 0.393
+8    0.332 0.302
+9    0.439 0.434
+10   0.409 1.718
+11   0.302 0.260
+12   0.335 0.288
+13   0.576 0.686
+14   0.476 0.571
+15   0.406 0.810
+16   0.435 0.410
+17   0.280 0.353
+18   0.413 0.390
+19   0.291 0.323
+20   0.444 0.394
+21   0.426 0.449
+22   1.138 0.506
+23   0.434 0.456
+24   0.286 0.278
+25   0.353 0.319
+26   0.414 0.539
+27   0.476 0.392
+28   0.393 0.399
+29   0.342 0.348
+30   0.589 0.479
+31   0.577 0.281
+32   0.426 0.415
+33   0.421 0.412
+34   0.406 0.415
+35   0.283 0.447
+36   0.486 0.410
+37   1.044 0.858
+38   0.437 0.420
+39   0.474 0.533
+40   0.457 0.431
+41   0.311 0.288
+42   0.397 0.826
+43   0.418 0.537
+44   0.424 0.396
+45   0.291 0.268
+46   0.396 0.882
+47   0.312 0.285
+48   0.413 0.550
+49   0.406 0.384
+50   0.414 0.493
+51   0.460 0.446
+52   0.418 0.395
+53   0.452 0.422
+54   0.403 1.048
+55   0.412 0.947
+56   0.418 0.421
+57   0.506 0.404
+58   0.424 0.428
+59   0.404 0.830
+60   0.442 0.598
+61   0.562 0.473
+62   0.433 0.444
+63   0.440 0.399
+64   0.504 0.420
+65   0.275 0.312
+66   0.399 0.393
+67   0.560 0.391
+68   0.279 0.350
+69   0.529 0.402
+70   0.277 0.268
+71   0.412 0.474
+72   0.319 0.327
+73   0.403 0.386
+74   0.288 0.296
+75   0.280 0.265
+76   0.309 0.331
+77   0.459 0.390
+78   0.514 0.586
+79   0.321 0.283
+80   0.359 0.885
+81   1.152 0.568
+82   0.491 0.571
+83   0.285 0.323
+84   0.706 0.462
+85   0.287 0.301
+86   0.432 0.400
+87   0.441 0.387
+88   0.388 0.401
+89   0.553 0.395
+90   0.296 0.266
+91   0.284 0.308
+92   0.536 0.380
+93   0.409 0.840
+94   0.420 0.426
+95   0.284 0.318
+96   0.587 0.471
+97   0.652 0.540
+98   0.401 0.987
+99   0.649 0.467
+100  0.423 0.491</code></pre>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># rã từ wide về true long</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_particle <span class="sc">%&gt;%</span> tidyr<span class="sc">::</span><span class="fu">gather</span>(before,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                              after,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">key =</span> <span class="st">"group"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                              <span class="at">value =</span> <span class="st">"value"</span>) <span class="ot">-&gt;</span> df_particle_long</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="`df_particle_long`">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<code>df_particle_long</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>     group value
+1   before 0.291
+2   before 0.635
+3   before 0.493
+4   before 0.480
+5   before 0.401
+6   before 0.330
+7   before 0.398
+8   before 0.332
+9   before 0.439
+10  before 0.409
+11  before 0.302
+12  before 0.335
+13  before 0.576
+14  before 0.476
+15  before 0.406
+16  before 0.435
+17  before 0.280
+18  before 0.413
+19  before 0.291
+20  before 0.444
+21  before 0.426
+22  before 1.138
+23  before 0.434
+24  before 0.286
+25  before 0.353
+26  before 0.414
+27  before 0.476
+28  before 0.393
+29  before 0.342
+30  before 0.589
+31  before 0.577
+32  before 0.426
+33  before 0.421
+34  before 0.406
+35  before 0.283
+36  before 0.486
+37  before 1.044
+38  before 0.437
+39  before 0.474
+40  before 0.457
+41  before 0.311
+42  before 0.397
+43  before 0.418
+44  before 0.424
+45  before 0.291
+46  before 0.396
+47  before 0.312
+48  before 0.413
+49  before 0.406
+50  before 0.414
+51  before 0.460
+52  before 0.418
+53  before 0.452
+54  before 0.403
+55  before 0.412
+56  before 0.418
+57  before 0.506
+58  before 0.424
+59  before 0.404
+60  before 0.442
+61  before 0.562
+62  before 0.433
+63  before 0.440
+64  before 0.504
+65  before 0.275
+66  before 0.399
+67  before 0.560
+68  before 0.279
+69  before 0.529
+70  before 0.277
+71  before 0.412
+72  before 0.319
+73  before 0.403
+74  before 0.288
+75  before 0.280
+76  before 0.309
+77  before 0.459
+78  before 0.514
+79  before 0.321
+80  before 0.359
+81  before 1.152
+82  before 0.491
+83  before 0.285
+84  before 0.706
+85  before 0.287
+86  before 0.432
+87  before 0.441
+88  before 0.388
+89  before 0.553
+90  before 0.296
+91  before 0.284
+92  before 0.536
+93  before 0.409
+94  before 0.420
+95  before 0.284
+96  before 0.587
+97  before 0.652
+98  before 0.401
+99  before 0.649
+100 before 0.423
+101  after 0.335
+102  after 0.513
+103  after 0.469
+104  after 0.386
+105  after 0.398
+106  after 0.323
+107  after 0.393
+108  after 0.302
+109  after 0.434
+110  after 1.718
+111  after 0.260
+112  after 0.288
+113  after 0.686
+114  after 0.571
+115  after 0.810
+116  after 0.410
+117  after 0.353
+118  after 0.390
+119  after 0.323
+120  after 0.394
+121  after 0.449
+122  after 0.506
+123  after 0.456
+124  after 0.278
+125  after 0.319
+126  after 0.539
+127  after 0.392
+128  after 0.399
+129  after 0.348
+130  after 0.479
+131  after 0.281
+132  after 0.415
+133  after 0.412
+134  after 0.415
+135  after 0.447
+136  after 0.410
+137  after 0.858
+138  after 0.420
+139  after 0.533
+140  after 0.431
+141  after 0.288
+142  after 0.826
+143  after 0.537
+144  after 0.396
+145  after 0.268
+146  after 0.882
+147  after 0.285
+148  after 0.550
+149  after 0.384
+150  after 0.493
+151  after 0.446
+152  after 0.395
+153  after 0.422
+154  after 1.048
+155  after 0.947
+156  after 0.421
+157  after 0.404
+158  after 0.428
+159  after 0.830
+160  after 0.598
+161  after 0.473
+162  after 0.444
+163  after 0.399
+164  after 0.420
+165  after 0.312
+166  after 0.393
+167  after 0.391
+168  after 0.350
+169  after 0.402
+170  after 0.268
+171  after 0.474
+172  after 0.327
+173  after 0.386
+174  after 0.296
+175  after 0.265
+176  after 0.331
+177  after 0.390
+178  after 0.586
+179  after 0.283
+180  after 0.885
+181  after 0.568
+182  after 0.571
+183  after 0.323
+184  after 0.462
+185  after 0.301
+186  after 0.400
+187  after 0.387
+188  after 0.401
+189  after 0.395
+190  after 0.266
+191  after 0.308
+192  after 0.380
+193  after 0.840
+194  after 0.426
+195  after 0.318
+196  after 0.471
+197  after 0.540
+198  after 0.987
+199  after 0.467
+200  after 0.491</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary></summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="at">filename =</span> <span class="st">"img/p1.png"</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">10</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">height =</span> <span class="dv">10</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">res =</span> <span class="dv">300</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">units =</span> <span class="st">"in"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggsignif)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggsci)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df_particle_long,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> group,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> value,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> group)) <span class="sc">+</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Before"</span>, </span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"After"</span>)) <span class="sc">+</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>   ggsignif<span class="sc">:::</span><span class="fu">geom_signif</span>(<span class="at">comparisons =</span> <span class="fu">list</span>(<span class="fu">unique</span>(df_particle_long<span class="sc">$</span>group)),</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>                         <span class="at">map_signif_level =</span> <span class="cf">function</span>(p_ok) {</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>                           <span class="co"># ""</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">paste0</span>(<span class="st">"p"</span>, <span class="st">" = "</span>, <span class="fu">round</span>(p_ok, <span class="dv">6</span>))</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>                           },</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>                         <span class="at">textsize =</span> <span class="dv">6</span>,</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>                         <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>                         <span class="at">test =</span> <span class="st">"wilcox.test"</span>,</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>                         <span class="at">test.args =</span> <span class="fu">list</span>(<span class="at">paired =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>                         ) <span class="sc">+</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>  ggsci<span class="sc">:::</span><span class="fu">scale_fill_d3</span>() <span class="sc">+</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Time"</span>,</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Particle"</span>) <span class="sc">+</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>) <span class="ot">-&gt;</span> p1</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>p1</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><img src="img/p1.png" class="img-fluid"></p>
+<p><strong>Để cho chữ <code>p</code> in nghiêng, thì ta tự vẽ lại riêng đoạn thẳng và ký hiệu vì rất khó modify trong function <code>ggsignif:::geom_signif()</code>.</strong></p>
+<p>Tham khảo thêm cách so sánh hai group trong R<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p><a href="https://cran.r-project.org/web/packages/ggprism/vignettes/pvalues.html" class="uri">https://cran.r-project.org/web/packages/ggprism/vignettes/pvalues.html</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -593,15 +1016,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="./intro.html" class="pagination-link" aria-label="Format trong Quarto">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Format trong Quarto</span></span>
+      <a href="./vector.html" class="pagination-link" aria-label="Vector">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vector</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./data_wrangling.html" class="pagination-link" aria-label="Data wrangling">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data wrangling</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -610,4 +1033,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

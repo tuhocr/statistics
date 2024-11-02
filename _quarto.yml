@@ -1,15 +1,19 @@
 project:
   type: book
-  output-dir: docs
+  output-dir: pdf # pdf
 
 book:
-  title: "statistics"
+  title: "Phân tích thống kê và vẽ đồ thị xuất sắc với R"
   author: "Duc Nguyen"
-  date: "10/25/2024"
+  date: last-modified
+  date-format: "DD MMMM YYYY"
+  cover-image: cover.png
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
+    - vector.qmd
+    - barchart.qmd
+    - data_wrangling.qmd
+    - format.qmd
     - references.qmd
 
 bibliography: F:\\VAULT12\\LOCAL\\all.bib
@@ -17,26 +21,28 @@ csl: ieee.csl
 
 format:
   html:
-    include-in-header:
-      - text: <link rel="stylesheet" href="https://github.com/tuhocr/statistics/blob/main/latex_css/style.css">
-      # - text: <link rel="stylesheet" href="https://latex.vercel.app/style.css">
-    # theme: cosmo
-    toc: false
+    theme: default
+    toc: true
     toc-title: "Mục lục"
     toc-expand: 8
     toc-depth: 6
-    toc-location: left
-    # number-sections: true
+    toc-location: right
+    number-sections: true
     number-depth: 8
-    # page-layout: full
+    page-layout: full
     anchor-sections: true
     smooth-scroll: true
-    # grid: 
-    #   body-width: 8000px
-    #   sidebar-width: 200px
-    #   margin-width: 200px
+    # code-fold: true
+    # grid:
+    #   body-width: 1700px
+    #   sidebar-width: 300px
+    #   margin-width: 150px
   pdf:
     documentclass: scrreprt
 
+knitr:
+  opts_chunk: 
+    message: false
+    warning: false
 
 

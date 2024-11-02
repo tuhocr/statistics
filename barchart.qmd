@@ -1,0 +1,94 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Barchart
+
+Barchart hay bar chart là đồ thị cột dùng để biểu diễn giữa 1 biến phân loại (trục X) và 1 biến liên tục (trục Y).
+
+## So sánh hai nhóm
+
+```{r}
+df_particle <- readRDS("dataset/df_particle.rds")
+```
+
+::: {.callout-tip title="`df_particle`" icon=false collapse=true}
+
+```{r, echo=FALSE}
+df_particle
+```
+:::
+
+```{r}
+library(dplyr)
+# rã từ wide về true long
+df_particle %>% tidyr::gather(before,
+                              after,
+                              key = "group",
+                              value = "value") -> df_particle_long
+```
+
+::: {.callout-tip title="`df_particle_long`" icon=false collapse=true}
+
+```{r, echo=FALSE}
+df_particle_long
+```
+:::
+
+```{r, results='hide'}
+#| code-fold: true
+#| code-summary: ""
+
+png(filename = "img/p1.png",
+    width = 10,
+    height = 10,
+    res = 300,
+    units = "in")
+
+library(ggplot2)
+library(ggsignif)
+library(ggsci)
+
+ggplot(data = df_particle_long,
+       mapping = aes(x = group,
+                     y = value,
+                     fill = group)) +
+  
+  geom_boxplot(show.legend = FALSE) +
+  
+  scale_x_discrete(labels = c("Before", 
+                              "After")) +
+  
+  scale_y_continuous(limits = c(0, 2)) +
+  
+   ggsignif:::geom_signif(comparisons = list(unique(df_particle_long$group)),
+                          map_signif_level = function(p_ok) {
+                          paste0("p", " = ", round(p_ok, 6))
+                           },
+                          textsize = 6,
+                          vjust = -1,
+                          test = "wilcox.test",
+                          test.args = list(paired = TRUE)
+                         ) +
+  
+  ggsci:::scale_fill_d3() +
+  
+  labs(x = "Time",
+       y = "Particle") +
+  
+  theme_bw(base_size = 20) -> p1
+
+p1
+
+dev.off()
+```
+
+![](img/p1.png)
+
+**Để cho chữ `p` in nghiêng, thì ta tự vẽ lại riêng đoạn thẳng và ký hiệu vì rất khó modify trong function `ggsignif:::geom_signif()`.**
+
+Tham khảo thêm cách so sánh hai group trong R[^2].
+
+[^2]: <https://cran.r-project.org/web/packages/ggprism/vignettes/pvalues.html>

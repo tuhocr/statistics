@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>statistics - 1&nbsp; Format trong Quarto</title>
+<title>Phân tích thống kê và vẽ đồ thị xuất sắc với R - 3&nbsp; Data wrangling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summary.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./format.html" rel="next">
+<link href="./barchart.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -68,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<link rel="stylesheet" href="https://latex.vercel.app/style.css">
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 </head>
@@ -82,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Format trong Quarto</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data_wrangling.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data wrangling</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -92,12 +126,12 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">statistics</a> 
+      <a href="./">Phân tích thống kê và vẽ đồ thị xuất sắc với R</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -110,25 +144,37 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vector</span></a>
+ <span class="menu-text">Lời nói đầu</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Format trong Quarto</span></span></a>
+  <a href="./vector.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vector</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  <a href="./barchart.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Barchart</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_wrangling.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data wrangling</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./format.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Format</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Tài liệu tham khảo</span></a>
   </div>
 </li>
     </ul>
@@ -137,19 +183,25 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="8">
+    <h2 id="toc-title">Mục lục</h2>
+   
+  <ul>
+  <li><a href="#chọn-ngẫu-nhiên-số-dòng-trong-dataset" id="toc-chọn-ngẫu-nhiên-số-dòng-trong-dataset" class="nav-link active" data-scroll-target="#chọn-ngẫu-nhiên-số-dòng-trong-dataset"><span class="header-section-number">3.1</span> Chọn ngẫu nhiên số dòng trong dataset</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Format trong Quarto</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data wrangling</span></h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -161,19 +213,195 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In đậm, gạch dưới, tô màu</p>
-<ul>
-<li>Cách 1:</li>
-</ul>
-<p><u><strong>abc</strong></u>]{style=“color:#FF0000;”}</p>
-<p><code>[**abc**]{.underline style="color:#FF0000;"}</code></p>
-<ul>
-<li>Cách 2:</li>
-</ul>
-<p><span style="color:#FF0000;"><ins><strong>abc</strong></ins></span>&lt;/ins&gt;</p>
-<p><code>[&lt;ins&gt;**abc**&lt;/ins&gt;]{style="color:#FF0000;"}</code></p>
+<p>Data wrangling là sắp xếp dữ liệu.</p>
+<section id="chọn-ngẫu-nhiên-số-dòng-trong-dataset" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="chọn-ngẫu-nhiên-số-dòng-trong-dataset"><span class="header-section-number">3.1</span> Chọn ngẫu nhiên số dòng trong dataset</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df_particle <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"dataset/df_particle.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df_particle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    before after
+1    0.291 0.335
+2    0.635 0.513
+3    0.493 0.469
+4    0.480 0.386
+5    0.401 0.398
+6    0.330 0.323
+7    0.398 0.393
+8    0.332 0.302
+9    0.439 0.434
+10   0.409 1.718
+11   0.302 0.260
+12   0.335 0.288
+13   0.576 0.686
+14   0.476 0.571
+15   0.406 0.810
+16   0.435 0.410
+17   0.280 0.353
+18   0.413 0.390
+19   0.291 0.323
+20   0.444 0.394
+21   0.426 0.449
+22   1.138 0.506
+23   0.434 0.456
+24   0.286 0.278
+25   0.353 0.319
+26   0.414 0.539
+27   0.476 0.392
+28   0.393 0.399
+29   0.342 0.348
+30   0.589 0.479
+31   0.577 0.281
+32   0.426 0.415
+33   0.421 0.412
+34   0.406 0.415
+35   0.283 0.447
+36   0.486 0.410
+37   1.044 0.858
+38   0.437 0.420
+39   0.474 0.533
+40   0.457 0.431
+41   0.311 0.288
+42   0.397 0.826
+43   0.418 0.537
+44   0.424 0.396
+45   0.291 0.268
+46   0.396 0.882
+47   0.312 0.285
+48   0.413 0.550
+49   0.406 0.384
+50   0.414 0.493
+51   0.460 0.446
+52   0.418 0.395
+53   0.452 0.422
+54   0.403 1.048
+55   0.412 0.947
+56   0.418 0.421
+57   0.506 0.404
+58   0.424 0.428
+59   0.404 0.830
+60   0.442 0.598
+61   0.562 0.473
+62   0.433 0.444
+63   0.440 0.399
+64   0.504 0.420
+65   0.275 0.312
+66   0.399 0.393
+67   0.560 0.391
+68   0.279 0.350
+69   0.529 0.402
+70   0.277 0.268
+71   0.412 0.474
+72   0.319 0.327
+73   0.403 0.386
+74   0.288 0.296
+75   0.280 0.265
+76   0.309 0.331
+77   0.459 0.390
+78   0.514 0.586
+79   0.321 0.283
+80   0.359 0.885
+81   1.152 0.568
+82   0.491 0.571
+83   0.285 0.323
+84   0.706 0.462
+85   0.287 0.301
+86   0.432 0.400
+87   0.441 0.387
+88   0.388 0.401
+89   0.553 0.395
+90   0.296 0.266
+91   0.284 0.308
+92   0.536 0.380
+93   0.409 0.840
+94   0.420 0.426
+95   0.284 0.318
+96   0.587 0.471
+97   0.652 0.540
+98   0.401 0.987
+99   0.649 0.467
+100  0.423 0.491</code></pre>
+</div>
+</div>
+<p><strong>Cách 1</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># cố định sự ngẫu nhiên</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>) </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># theo số lượng dòng</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>df_particle <span class="sc">%&gt;%</span> dplyr<span class="sc">:::</span><span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">20</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">replace =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   before after
+1   0.279 0.350
+2   0.474 0.533
+3   0.291 0.335
+4   0.406 0.415
+5   0.441 0.387
+6   0.418 0.537
+7   0.476 0.571
+8   0.491 0.571
+9   0.404 0.830
+10  0.460 0.446
+11  0.287 0.301
+12  0.426 0.449
+13  0.403 1.048
+14  0.288 0.296
+15  0.398 0.393
+16  0.403 0.386
+17  0.321 0.283
+18  1.044 0.858
+19  0.285 0.323
+20  0.652 0.540</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cố định sự ngẫu nhiên</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>) </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># theo tỷ lệ</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>df_particle <span class="sc">%&gt;%</span> dplyr<span class="sc">:::</span><span class="fu">sample_frac</span>(<span class="at">size =</span> <span class="fl">0.25</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">replace =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   before after
+1   0.279 0.350
+2   0.474 0.533
+3   0.291 0.335
+4   0.406 0.415
+5   0.441 0.387
+6   0.418 0.537
+7   0.476 0.571
+8   0.491 0.571
+9   0.404 0.830
+10  0.460 0.446
+11  0.287 0.301
+12  0.426 0.449
+13  0.403 1.048
+14  0.288 0.296
+15  0.398 0.393
+16  0.403 0.386
+17  0.321 0.283
+18  1.044 0.858
+19  0.285 0.323
+20  0.652 0.540
+21  0.424 0.396
+22  0.706 0.462
+23  0.421 0.412
+24  0.283 0.447
+25  0.277 0.268</code></pre>
+</div>
+</div>
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p><a href="https://scales.arabpsychology.com/stats/how-to-select-random-rows-in-r-using-dplyr/" class="uri">https://scales.arabpsychology.com/stats/how-to-select-random-rows-in-r-using-dplyr/</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -563,15 +791,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Vector">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Vector</span>
+      <a href="./barchart.html" class="pagination-link" aria-label="Barchart">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Barchart</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./summary.html" class="pagination-link" aria-label="Summary">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./format.html" class="pagination-link" aria-label="Format">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Format</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -580,4 +808,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
